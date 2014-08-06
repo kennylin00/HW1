@@ -7,11 +7,13 @@
 #define locked 1
 #define unlocked 0
 
-extern void lock_mutex(void *mutex);
-extern void unlock_mutex(void *mutex);
+//extern void lock_mutex(void *mutex);
+//extern void unlock_mutex(void *mutex);
+extern void lock_mutex(unsigned int *mutex);
+extern void unlock_mutex(unsigned int *mutex);
 
 pthread_t tid[2];
-int counter;
+int counter = 0;
 // pthread_mutex_t lock;
 unsigned int mutexlock = unlocked;
 
@@ -23,7 +25,8 @@ void *doSomeThing(void *arg)
 	counter += 1;
 	printf("\n Job %d started\n", counter);
 
-	for (i = 0; i < (0xFFFFFFFF); i++);
+	//for (i = 0; i < (0xFFFFFFFF); i++);
+	for (i = 0; i < (0xFFFF); i++);
 
 	printf("\n Job %d finished\n", counter);
 
