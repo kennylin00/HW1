@@ -1,0 +1,15 @@
+target remote : 1234
+b main
+
+
+b 10
+
+define adder
+	print $arg0 + $arg1 + $arg2
+end
+
+define getpc
+	print $pc
+end
+
+
